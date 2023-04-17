@@ -76,8 +76,8 @@ export default function Sidebar() {
                     <Image
                       src={"/images/imnu.png"}
                       alt="..."
-                      height={100}
-                      width={100}
+                      height={99}
+                      width={99}
                     />
                   </a>
                 </div>

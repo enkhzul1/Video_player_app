@@ -1,5 +1,5 @@
-import "@/styles/globals.css";
 import { useState, useEffect } from "react";
+import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   const [isSSR, setIsSSr] = useState(true);

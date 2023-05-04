@@ -9,7 +9,7 @@ export default function Home({ videos }) {
         ))
       ) : (
         // <NoResults text={`No Videos`} />'
-        <div className="bg-red-500">asd</div>
+        <div className="bg-red-100">asd</div>
       )}
     </div>
   );

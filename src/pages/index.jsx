@@ -1,4 +1,5 @@
-import IndexLayout from "@/layout";
+import IndexLayout from "@/layout/indexLayout";
+import { Button } from "@mantine/core";
 
 export default function Home({ videos }) {
   return (
@@ -9,7 +10,9 @@ export default function Home({ videos }) {
         ))
       ) : (
         // <NoResults text={`No Videos`} />'
-        <div className="bg-red-100">asd</div>
+        <div className="bg-red-100">
+          <Button>start</Button>
+        </div>
       )}
     </div>
   );

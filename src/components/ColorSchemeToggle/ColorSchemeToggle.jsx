@@ -2,12 +2,12 @@ import { ActionIcon, Group, useMantineColorScheme } from "@mantine/core";
 import { CiCloudMoon, CiCloudSun } from "react-icons";
 
 export default function ColorSchemeToggle() {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  // const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
     <Group position="center" mt="xl">
       <ActionIcon
-        onClick={() => toggleColorScheme()}
+        // onClick={() => toggleColorScheme()}
         size="xl"
         sx={(theme) => ({
           backgroundColor:
@@ -20,11 +20,11 @@ export default function ColorSchemeToggle() {
               : theme.colors.blue[6],
         })}
       >
-        {colorScheme === "dark" ? (
+        {/* {colorScheme === "dark" ? (
           <CiCloudSun size={24} />
         ) : (
           <CiCloudMoon size={24} />
-        )}
+        )} */}
       </ActionIcon>
     </Group>
   );

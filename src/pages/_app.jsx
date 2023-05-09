@@ -1,34 +1,15 @@
 import { useState, useEffect } from "react";
-import "../styles/globals.css";
 import Head from "next/head";
-import { getCookie, setCookies } from "cookies-next";
+import "@/styles/globals.css";
+import { MantineProvider, createEmotionCache, rem } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
-import { ModalsProvider } from "@mantine/modals";
-import {
-  MantineProvider,
-  createEmotionCache,
-  ColorScheme,
-  ColorSchemeProvider,
-} from "@mantine/core";
-import { NotificationsProvider } from "@mantine/notifications";
-
 const appendCache = createEmotionCache({ key: "mantine", prepend: false });
+import { ModalsProvider } from "@mantine/modals";
 
 export default function App(props) {
   const [isSSR, setIsSSr] = useState(true);
 
   const { Component, pageProps } = props;
-
-  const [colorScheme, setColorScheme] = useState(props.colorScheme);
-
-  const toggleColorScheme = (value) => {
-    const nextColorScheme =
-      value || (colorScheme === "dark" ? "light" : "dark");
-    setColorScheme(nextColorScheme);
-    setCookies("mantine-color-scheme", nextColorScheme, {
-      maxAge: 60 * 60 * 24 * 30,
-    });
-  };
 
   useEffect(() => {
     setIsSSr(false);
@@ -48,30 +29,26 @@ export default function App(props) {
         />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
-      <ColorSchemeProvider
-        colorScheme={colorScheme}
-        toggleColorScheme={toggleColorScheme}
+      <MantineProvider
+        withCSSVariables
+        withGlobalStyles
+        withNormalizeCSS
+        emotionCache={appendCache}
+        theme={{
+          colorScheme: "light",
+          focusRingStyles: {
+            styles: (theme) => ({ outline: `${rem(2)} solid #f9bc609d` }),
+            inputStyles: (theme) => ({ outline: `${rem(2)} solid #f9bc609d` }),
+          },
+        }}
       >
-        <MantineProvider
-          theme={{ colorScheme }}
-          withGlobalStyles
-          withNormalizeCSS
-        >
-          <Notifications />
-          <ModalsProvider>
-            <NotificationsProvider>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </NotificationsProvider>
-          </ModalsProvider>
-        </MantineProvider>
-      </ColorSchemeProvider>
+        <Notifications />
+        <ModalsProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ModalsProvider>
+      </MantineProvider>
     </>
   );
-}
-
-export async function getServerSideProps({ req }) {
-  const colorScheme = getCookie("mantine-color-scheme", { req }) || "light";
-  return { props: { colorScheme } };
 }

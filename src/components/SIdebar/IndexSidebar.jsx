@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
@@ -9,6 +8,14 @@ import { Toaster } from "react-hot-toast";
 import NotificationDropdown from "../Dropdowns/NotificationDropdown";
 import { ToasterSuccess } from "../Toaster/notification";
 import UserDropdown from "../Dropdowns/UserDropdown";
+import { Group, Container, Stack, Image, Paper, Text } from "@mantine/core";
+import {
+  IconHome,
+  IconSearch,
+  IconCirclePlus,
+  IconSettings,
+  IconMessageCircle,
+} from "@tabler/icons-react";
 
 // statics
 
@@ -23,218 +30,40 @@ export default function Sidebar() {
   return (
     <>
       <Toaster />
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
-        <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
-          {/* Toggler */}
-          <button
-            className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-            type="button"
-            onClick={() => setCollapseShow("bg-white m-2 py-3 px-6")}
-          >
-            <i className="fas fa-bars"></i>
-          </button>
-          {/* Brand */}
-          <a
-            href={"https://upoint.mn/"}
-            target="_blank"
-            type="button"
-            className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-          >
-            <Image
-              src={"/images/imnu.png"}
-              alt="..."
-              height={100}
-              width={100}
-            />
-          </a>
-          {/* User */}
-          <ul className="md:hidden items-center flex flex-wrap list-none">
-            <li className="inline-block relative">
-              <NotificationDropdown />
-            </li>
-            <li className="inline-block relative">
-              <UserDropdown />
-            </li>
-          </ul>
-          {/* Collapse */}
-          <div
-            className={
-              "md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded " +
-              collapseShow
-            }
-          >
-            {/* Collapse header */}
-            <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
-              <div className="flex flex-wrap">
-                <div className="w-6/12">
-                  <a
-                    href={"https://upoint.mn/"}
-                    target="_blank"
-                    type="button"
-                    className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                  >
-                    <Image
-                      src={"/images/imnu.png"}
-                      alt="..."
-                      height={99}
-                      width={99}
-                    />
-                  </a>
-                </div>
-                <div className="w-6/12 flex justify-end">
-                  <button
-                    type="button"
-                    className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-                    onClick={() => setCollapseShow("hidden")}
-                  >
-                    <i className="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
+      <nav className="w-2/6 bg-red-500 ">
+        <Stack spacing={0}>
+          <Group grow p={15} className="bg-indigo-500">
+            <IconHome />
+            <IconSearch />
+            <IconCirclePlus size={40} />
+            <IconMessageCircle />
+            <IconSettings />
+          </Group>
+          <Group pos="relative">
+            <div>
+              <Image
+                src="https://yt3.googleusercontent.com/NTFaX7uizUm0OyHER7jDblyUxT7D_P5PcydEh4LlVR3VoVy8rzGbmlT6t5I5msjSxzWTrLrlbEc=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+                alt="cover"
+                height={200}
+                withPlaceholder
+              />
             </div>
-            {/* Form */}
-            <form className="mt-6 mb-4 md:hidden">
-              <div className="mb-3 pt-0">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="border-0 px-3 py-2 h-12 border border-solid  border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
-                />
-              </div>
-            </form>
-
-            {/* Divider */}
-            <hr className="md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block py-4 no-underline">
-              Админ удирдах
-            </h6>
-            {/* Navigation */}
-
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              <li className="items-center">
-                <Link
-                  href={{
-                    pathname: "/admin/dashboard",
-                    query: {
-                      title: "Хянах Самбар",
-                    },
-                  }}
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (router.pathname.indexOf("/admin/dashboard") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                >
-                  <i
-                    className={
-                      "fas fa-tv mr-2 text-sm " +
-                      (router.pathname.indexOf("/admin/dashboard") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Хянах Самбар
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link
-                  href={{
-                    pathname: "/admin/advertisement",
-                    query: {
-                      title: "Мэдээ",
-                    },
-                  }}
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (router.pathname.indexOf("/admin/advertisement") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                >
-                  <i
-                    className={
-                      "fas fa-newspaper mr-2 text-sm " +
-                      (router.pathname.indexOf("/admin/advertisement") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Мэдээ
-                </Link>
-              </li>
-            </ul>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Хэрэглэгчийн бүртгэл
-            </h6>
-            {/* Navigation */}
-
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <li className="items-center">
-                <Link
-                  href={{
-                    pathname: "/admin/users",
-                    query: {
-                      title: "хэрэглэгчид",
-                    },
-                  }}
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                >
-                  <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i>{" "}
-                  Идэвхтэй хэрэглэгчид
-                </Link>
-              </li>
-              <li className="items-center">
-                <Link
-                  href={{
-                    pathname: "/profile",
-                    query: {
-                      title: "Профайл",
-                    },
-                  }}
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                >
-                  <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"></i>{" "}
-                  Профайл
-                </Link>
-              </li>
-            </ul>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Тусламж
-            </h6>
-            {/* Navigation */}
-
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <li className="items-center">
-                <Link
-                  href="/landing"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                >
-                  <i className="fas fa-question text-blueGray-400 mr-3 text-sm"></i>
-                  Хэргэлэх заавар
-                </Link>
-              </li>
-            </ul>
-            <div className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <div className="items-center">
-                <button onClick={handleLogout}>
-                  <i className="fas fa-arrow-right-from-bracket text-blueGray-400 mr-3 text-sm"></i>
-                  Системээс гарах
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+            <Paper bg="none" pos="absolute" bottom={-80} left={20}>
+              <img
+                src="https://yt3.googleusercontent.com/ShxraulKC7bA9G-pveJbnIymRACL3w6q0M8a9jSjJMbe4Z6wpCZ3nPsg7fujbTiD3mCk13mfDw=s176-c-k-c0x00ffffff-no-rj"
+                alt="avatar"
+                width={150}
+                height={150}
+                className="ring-8 ring-red-500 rounded-full"
+              />
+            </Paper>
+          </Group>
+          <Group>
+            <Stack>
+              <Text>kali mommy</Text>
+            </Stack>
+          </Group>
+        </Stack>
       </nav>
     </>
   );

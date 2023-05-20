@@ -70,15 +70,21 @@ export const VideoJS = (props) => {
     };
   }, [playerRef]);
 
+  const getPreviousVideo = ()=>{
+    //fetch previous video url
+  }
+  const getNextVideo = ()=>{
+//fetch next video url
+  }
   return (
     <div data-vjs-player className='w-full relative'>
       <div ref={videoRef} />
       <div className='absolute right-0 top-0 h-full bg-slate-800	 px-3'>
         <div className='flex h-full flex-col gap-4 align-center justify-center z-10'>
-          <ActionIcon variant='transparent' onClick={getPreviousVideo()}>
+          <ActionIcon variant='transparent' onClick={getPreviousVideo}>
             <IconChevronUp/>
           </ActionIcon>
-          <ActionIcon variant='transparent' onClick={getNextVideo()}>
+          <ActionIcon variant='transparent' onClick={getNextVideo}>
             <IconChevronDown/>
           </ActionIcon>
           <ActionIcon variant='transparent'>

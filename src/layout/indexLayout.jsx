@@ -7,9 +7,9 @@ export default function IndexLayout({ children }) {
   return (
     <div className="xl:w-[1200px] m-auto overflow-hidden h-screen">
       <Header />
-      <div className="flex">
-        <section className="mx-auto py-4">{children}</section>
-        <div className="h-screen w-full sticky top-0">
+      <div className="flex h-screen">
+        <section className="w-full grow h-[100vh-500px]">{children}</section>
+        <div className="h-screen ">
           <Sidebar />
         </div>
       </div>

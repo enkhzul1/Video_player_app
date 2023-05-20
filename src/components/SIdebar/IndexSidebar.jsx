@@ -116,7 +116,7 @@ export default function Sidebar() {
   return (
     <>
       <Toaster />
-      <nav className="w-2/6 bg-red-500 float-right	">
+      <nav className="w-full bg-red-500 float-right	w-[400px]">
         <Stack spacing={0} pos="relative">
           <Group grow p={15} className="bg-indigo-500">
             <IconHome />

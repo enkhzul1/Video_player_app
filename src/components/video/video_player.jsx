@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import groq from "groq";
-import client from "@/client";
+// import client from "@/client";
 
 export default function Posts(props) {
   const { title, playbackId } = suspend(() => client.fetch(query), []);
@@ -12,13 +12,13 @@ export default function Posts(props) {
   return <video playbackId={playbackId} metadata={{ video_title: title }} />;
 }
 
-const client = createClient({
-  projectId: "lb871prh",
-  dataset: "codesandbox",
-  useCdn: true,
-  withCredentials: false,
-  apiVersion: "2022-10-10",
-});
+// const client = createClient({
+//   projectId: "lb871prh",
+//   dataset: "codesandbox",
+//   useCdn: true,
+//   withCredentials: false,
+//   apiVersion: "2022-10-10",
+// });
 const query = groq`*[_type == "trailer"][0]{
     title,
     "playbackId": video.asset->playbackId

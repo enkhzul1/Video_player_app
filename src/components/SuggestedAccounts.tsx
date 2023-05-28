@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { NextPage } from "next";
 import Link from "next/link";
 import { GoVerified } from "react-icons/go";
 
@@ -11,7 +10,7 @@ interface IProps {
   allUsers: IUser[];
 }
 
-const SuggestedAccounts: NextPage<IProps> = ({ fetchAllUsers, allUsers }) => {
+const SuggestedAccounts: React.FC<IProps> = ({ fetchAllUsers, allUsers }) => {
   useEffect(() => {
     fetchAllUsers();
   }, [fetchAllUsers]);
@@ -19,8 +18,6 @@ const SuggestedAccounts: NextPage<IProps> = ({ fetchAllUsers, allUsers }) => {
   const users = allUsers
     .sort(() => 0.5 - Math.random())
     .slice(0, allUsers.length);
-
-  console.log(allUsers);
 
   return (
     <div className="xl:border-b-2 border-gray-200 pb-4">

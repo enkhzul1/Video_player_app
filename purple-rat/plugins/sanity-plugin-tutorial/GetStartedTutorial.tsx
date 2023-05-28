@@ -38,6 +38,8 @@ export const GetStartedTutorial = () => {
   const isSmallScreen = width ? width < sanity.media[1] : false
   const isProdEnv = process.env.NODE_ENV !== 'development'
 
+  console.log(process.env.NODE_ENV === 'production')
+
   const onClose = () => {
     window.localStorage.setItem('getstarted_closedTutorial', 'true')
     setShowTutorial(true)

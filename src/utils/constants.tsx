@@ -11,7 +11,6 @@ export const topics = [
   {
     name: "喜剧", // comedy
     path: "comedy",
-
     icon: <BsEmojiSunglasses />,
   },
   {

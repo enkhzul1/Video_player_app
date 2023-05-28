@@ -8,6 +8,7 @@ const nextConfig = {
       "p16-amd-va.tiktokcdn.com",
       "image.shutterstock.com",
       "instagram.fuln6-2.fna.fbcdn.net",
+      "images.unsplash.com",
     ],
   },
 };

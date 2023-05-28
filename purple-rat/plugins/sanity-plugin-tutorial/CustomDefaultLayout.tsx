@@ -9,7 +9,7 @@ export function CustomDefaultLayout(props: LayoutProps) {
 
   return (
     <>
-      {showTutorial && <GetStartedTutorial />}
+      {/* {showTutorial && <GetStartedTutorial />} */}
       {props.renderDefault(props)}
     </>
   )

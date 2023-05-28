@@ -92,19 +92,19 @@ const Upload = () => {
         <div>
           <div>
             <p className="text-2xl font-bold">
-              {/* Upload Video */}
-              上传视频
+              Upload Video
+              {/* 上传视频 */}
             </p>
             <p className="text-md text-gray-400 mt-1">
-              {/* Post a video to your account */}
-              将视频发布到您的帐户
+              Post a video to your account
+              {/* 将视频发布到您的帐户 */}
             </p>
           </div>
           <div className=" border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
             {loading ? (
               <p className="text-center text-3xl text-red-400 font-semibold">
-                {/* Uploading... */}
-                正在上传...
+                Uploading...
+                {/* 正在上传... */}
               </p>
             ) : (
               <div>
@@ -116,24 +116,24 @@ const Upload = () => {
                           <FaCloudUploadAlt className="text-gray-300 text-6xl" />
                         </p>
                         <p className="text-xl font-semibold">
-                          {/* Select video to upload */}
-                          选择要上传的视频
+                          Select video to upload
+                          {/* 选择要上传的视频 */}
                         </p>
                       </div>
 
                       <p className="text-gray-400 text-center mt-10 text-sm leading-10">
-                        {/* MP4 or WebM or ogg <br />
+                        MP4 or WebM or ogg <br />
                         720x1280 resolution or higher <br />
                         Up to 10 minutes <br />
-                        Less than 2 GB */}
-                        MP4 或 WebM 或 ogg <br />
+                        Less than 2 GB
+                        {/* MP4 或 WebM 或 ogg <br />
                         720x1280 分辨率或更高 <br />
                         最多 10 分钟 <br />
-                        小于 2 GB
+                        小于 2 GB */}
                       </p>
                       <p className="bg-[#F51997] text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none">
-                        {/* Select file */}
-                        选择文件
+                        Select file
+                        {/* 选择文件 */}
                       </p>
                     </div>
                     <input
@@ -168,15 +168,15 @@ const Upload = () => {
           </div>
           {wrongFileType && (
             <p className="text-center text-xl text-red-400 font-semibold mt-4 w-[260px]">
-              {/* Please select an video file (mp4 or webm or ogg) */}
-              请选择视频文件（mp4 或 webm 或 ogg）
+              Please select an video file (mp4 or webm or ogg)
+              {/* 请选择视频文件（mp4 或 webm 或 ogg） */}
             </p>
           )}
         </div>
         <div className="flex flex-col gap-3 pb-10">
           <label className="text-md font-medium ">
-            {/* Caption */}
-            标题
+            Caption
+            {/* 标题 */}
           </label>
           <input
             type="text"
@@ -185,8 +185,8 @@ const Upload = () => {
             className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
           />
           <label className="text-md font-medium ">
-            {/* Choose a topic */}
-            选择一个主题
+            Choose a topic
+            {/* 选择一个主题 */}
           </label>
 
           <select
@@ -211,8 +211,8 @@ const Upload = () => {
               type="button"
               className="border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
             >
-              {/* Discard */}
-              丢弃
+              Discard
+              {/* 丢弃 */}
             </button>
             <button
               disabled={videoAsset?.url ? false : true}
@@ -220,8 +220,8 @@ const Upload = () => {
               type="button"
               className="bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
             >
-              {/* {savingPost ? "Posting..." : "Post"}  */}
-              {savingPost ? "发帖..." : "邮政"}
+              {savingPost ? "Posting..." : "Post"}
+              {/* {savingPost ? "发帖..." : "邮政"} */}
             </button>
           </div>
         </div>

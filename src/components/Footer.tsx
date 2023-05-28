@@ -1,5 +1,4 @@
 import React from "react";
-import { NextPage } from "next";
 import { footerList1, footerList2, footerList3 } from "../utils/constants";
 
 const List = ({ items, mt }: { items: string[]; mt: Boolean }) => (
@@ -15,7 +14,7 @@ const List = ({ items, mt }: { items: string[]; mt: Boolean }) => (
   </div>
 );
 
-const Footer: NextPage = () => (
+const Footer = () => (
   <div className="mt-6 hidden xl:block">
     <List items={footerList1} mt={false} />
     <List items={footerList2} mt />

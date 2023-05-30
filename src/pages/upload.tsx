@@ -92,7 +92,7 @@ const Upload = () => {
         <div>
           <div>
             <p className="text-2xl font-bold">
-              Upload Video
+              Upload your Video
               {/* 上传视频 */}
             </p>
             <p className="text-md text-gray-400 mt-1">
@@ -121,7 +121,7 @@ const Upload = () => {
                         </p>
                       </div>
 
-                      <p className="text-gray-400 text-center mt-10 text-sm leading-10">
+                      <p className="text-gray-400 text-center mt-14 mb-14 text-sm leading-10">
                         MP4 or WebM or ogg <br />
                         720x1280 resolution or higher <br />
                         Up to 10 minutes <br />
@@ -131,7 +131,7 @@ const Upload = () => {
                         最多 10 分钟 <br />
                         小于 2 GB */}
                       </p>
-                      <p className="bg-[#F51997] text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none">
+                      <p className="bg-violet-600 text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none">
                         Select file
                         {/* 选择文件 */}
                       </p>
@@ -188,7 +188,6 @@ const Upload = () => {
             Choose a topic
             {/* 选择一个主题 */}
           </label>
-
           <select
             onChange={(e) => {
               setTopic(e.target.value);
@@ -218,7 +217,7 @@ const Upload = () => {
               disabled={videoAsset?.url ? false : true}
               onClick={handlePost}
               type="button"
-              className="bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
+              className="bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none disabled:bg-gray-300"
             >
               {savingPost ? "Posting..." : "Post"}
               {/* {savingPost ? "发帖..." : "邮政"} */}
